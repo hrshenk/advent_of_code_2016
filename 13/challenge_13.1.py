@@ -48,13 +48,13 @@ while heap:
             edges.append( (x+i, y) )
         if y + i >= 0:
             edges.append( (x, y+i) )
-    for x, y in edges:
-        if (x, y) == target:
+    for u, v in edges:
+        if (u, v) == target:
             print cost
             quit()
-        if not test_parity(x, y, favorite):
-            if not seen.has_key( (x, y) ):
-                heappush( heap, (cost + taxicab_distance((x,y), target), cost, (x, y)) )
+        if not test_parity(u, v, favorite):
+            if not seen.has_key( (u, v) ):
+                heappush( heap, (cost + taxicab_distance((x,y), target), cost, (u, v)) )
     seen[(x, y)] = True
 
         
