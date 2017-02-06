@@ -24,11 +24,15 @@ candidates = {}
 indices = []
 key_count = 0
 close = -1
+
 while True:
     for i in xrange(100000):
         current = m.copy()
         current.update(str(i))
         s = current.hexdigest()
+        for x in xrange(2016):
+            h = md5.new(s)
+            s = h.hexdigest()
         trips = get_multiples(s, 3)
         quints = get_multiples(s, 5)
         for key in quints:
